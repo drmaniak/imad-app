@@ -7,5 +7,6 @@ function main(){
         $(this).next().slideToggle(500);
         $(this).text("Shazam!!");
     })
-    $(document).ready(main);
+    
 }
+$(document).ready(main);
