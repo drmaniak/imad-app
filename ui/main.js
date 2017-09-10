@@ -1,9 +1,8 @@
-console.log('Loaded!');
 function main(){
-    $('.bold').hide();
-    $('.bold').fadeIn(500);
+    $('.first').hide();
+    $('.first').fadeIn(500);
     $('.second').hide();
-    $('.bold').on('click', function (){
+    $('.first').on('click', function (){
         $(this).next().slideToggle(500);
         $(this).text("Shazam!!");
     })
