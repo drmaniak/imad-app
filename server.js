@@ -13,11 +13,11 @@ app.get('/article-one', function(req, res){
     res.send("You have requested article one");
 });
 
-qpp.get('/article-two', function(req, res){
+app.get('/article-two', function(req, res){
     res.send("You have requested article two");
 });
 
-qpp.get('/article-three', function(req, res){
+app.get('/article-three', function(req, res){
     res.send("You have requested article three");
 });
 
