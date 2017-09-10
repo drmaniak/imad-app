@@ -9,7 +9,7 @@ var articles ={
     'article-one' :{
     title: "Article One",
     date: "September 11th 2017",
-    heading: "This is Aricle one's page.",
+    heading: "This is Article one's page.",
     content: `<p>
                     This is the first paragraph under article one!! Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor.
                 </p>
@@ -18,7 +18,7 @@ var articles ={
     'article-two' : {
     title: "Article Two",
     date: "September 11th 2017",
-    heading: "This is Aricle two's page.",
+    heading: "This is Article two's page.",
     content: `<p>
                     This is the first paragraph under article two!! Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor.
                 </p>
@@ -27,7 +27,7 @@ var articles ={
     'article-three' : {
     title: "Article Three",
     date: "September 11th 2017",
-    heading: "This is Aricle three's page.",
+    heading: "This is Article three's page.",
     content: `<p>
                     This is the first paragraph under article three!! Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor.
                 </p>
