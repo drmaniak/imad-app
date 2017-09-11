@@ -7,7 +7,11 @@ function main(){
         $(this).toggleClass('third');
     });
     var $image = $('#madi');
-    var marginLeft = 0;
+    $image.on('click', function(){
+        $('#madi').animate({width:'400px'}, 500);
+    });
+    
+    /*var marginLeft = 0;
     function moveRight(){
         marginLeft = marginLeft + 1;
         $image.css("marginLeft", marginLeft + "px");
@@ -16,7 +20,7 @@ function main(){
         var interval = setInterval(moveRight, 50);
         
     //    $image.css("marginLeft", "100px");
-    });
+    });*/
     
 }
 $(document).ready(main);
