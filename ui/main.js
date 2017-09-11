@@ -8,7 +8,7 @@ function main(){
     });
     var $image = $('#madi');
     $image.on('click', function(){
-        $('#madi').animate({width:'0px'}, 500);
+        $('#madi').animate({width:'190px'}, 500);
     });
     
     /*var marginLeft = 0;
