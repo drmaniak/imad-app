@@ -10,10 +10,12 @@ function main(){
     $('.img-medium').on('click', function(){
         $(this).animate({width:'300px'}, 500);
         $(this).toggleClass('img-large');
+        $(this).toggleClass('img-medium', false);
     });
     $('.img-large').on('click', function(){
         $(this).animate({width:'187px'}, 500);
         $(this).toggleClass('img-medium');
+        $(this).toggleClass('img-large', false);
     });
     
     /*var marginLeft = 0;
