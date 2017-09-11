@@ -40,10 +40,10 @@ body {
 
 .third {
     border: 2px solid black;
-    background-color: white;
+    background-color: #f0f0f0;
 }
 
 .third:hover {
     text-decoration: underline;
-    color: #747272;
+    color: #e0e0e0;
 }
