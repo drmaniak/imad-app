@@ -35,6 +35,7 @@ body {
 .first {
     border: 2px solid grey;
     background-color: white;
+    color: red;
 }
 
 .first:hover {
