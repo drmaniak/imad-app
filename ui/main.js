@@ -7,6 +7,7 @@ function main(){
         $(this).toggleClass('third');
     });
     var $image = $('#madi');
+    var marginLeft = 0;
     function moveRight(){
         marginLeft = marginLeft + 10;
         $image.css("marginLeft", marginLeft + "px");
