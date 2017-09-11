@@ -13,6 +13,10 @@ var articles ={
     content: `<p>
                     Considering the gravity of the topic on hand, I suggest that you immediately cease this pursuit. One man's definition of something being interesting could only under the most arbitrary of circumstances hold true for the next. The arbitrary nature of these circumstances could somewhat be mitigated if there was some degree of familiarity between the two men in question. However, this is merely a disclaimer as one can only hope for a less than nominal amount of familiarity between say a kitten and a smilodon, or to draw a closer parallel to our relationship, between a man... and a <b>GOD</b>
                 </p>
+                <p> Also</p>
+                <div class='center'>
+                    <img id='compliment' src="https://i1.sndcdn.com/artworks-000235377844-0eqgkx-t500x500.jpg" class="img-medium"/>
+                </div>    
                 `
     },
     'article-two' : {
