@@ -13,7 +13,7 @@ function main(){
         $image.css("marginLeft", marginLeft + "px");
     }
     $image.on('click', function(){
-        var interval = setInterval(moveRight, 1000);
+        var interval = setInterval(moveRight, 100);
         
     //    $image.css("marginLeft", "100px");
     });
