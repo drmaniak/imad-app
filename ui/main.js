@@ -7,8 +7,13 @@ function main(){
         $(this).toggleClass('third');
     });
     var $image = $('#madi');
-    $image.on('click', function(){
-        $('#madi').animate({width:'190px'}, 500);
+    $('.img-medium').on('click', function(){
+        $(this).animate({width:'300px'}, 500);
+        $(this).toggleClass('img-large');
+    });
+    $('.img-large').on('click', function(){
+        $(this).animate({width:'187px'}, 500);
+        $(this).toggleClass('img-large');
     });
     
     /*var marginLeft = 0;
