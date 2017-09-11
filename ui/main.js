@@ -9,7 +9,7 @@ function main(){
     var $image = $('#madi');
     var marginLeft = 0;
     function moveRight(){
-        marginLeft = marginLeft + 5;
+        marginLeft = marginLeft + 1;
         $image.css("marginLeft", marginLeft + "px");
     }
     $image.on('click', function(){
