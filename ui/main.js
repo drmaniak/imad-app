@@ -9,11 +9,11 @@ function main(){
     var $image = $('#madi');
     var marginLeft = 0;
     function moveRight(){
-        marginLeft = marginLeft + 10;
+        marginLeft = marginLeft + 5;
         $image.css("marginLeft", marginLeft + "px");
     }
     $image.on('click', function(){
-        var interval = setInterval(moveRight, 100);
+        var interval = setInterval(moveRight, 50);
         
     //    $image.css("marginLeft", "100px");
     });
