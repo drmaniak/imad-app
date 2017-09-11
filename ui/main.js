@@ -3,7 +3,7 @@ function main(){
     $('.first').fadeIn(500);
     $('.second').hide();
     $('.first').on('click', function (){
-        $(this).next().slideToggle(500);
+        $(this).next().show();
         $(this).text("Shazam!!");
     })
     
