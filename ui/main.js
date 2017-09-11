@@ -8,7 +8,7 @@ function main(){
     });
     var $image = $('#madi');
     $image.on('click', function(){
-        $image.style.marginLeft = '100px';
+        $image.css("marginLeft", "100px");
     });
     
 }
