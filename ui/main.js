@@ -6,6 +6,10 @@ function main(){
         $('.second').slideToggle(500);
         $(this).toggleClass('third');
     });
+    var $image = $('#madi');
+    $image.on('click', function(){
+        $image.style.marginLeft = '100px';
+    });
     
 }
 $(document).ready(main);
