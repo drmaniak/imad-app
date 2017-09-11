@@ -9,14 +9,6 @@ function main(){
     var $image = $('#madi');
     $('.img-medium').on('click', function(){
         $(this).animate({width:'300px'}, 500);
-        $(this).addClass('img-large');
-        $(this).removeClass('img-medium');
-    });
-    
-    $('.img-large').on('click', function(){
-        $(this).animate({width:'186px'}, 500);
-        $(this).addClass('img-medium');
-        $(this).removeClass('img-large');
     });
     
     /*var marginLeft = 0;
