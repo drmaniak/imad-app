@@ -29,8 +29,8 @@ body {
 }
 
 .first {
-    border: 2px solid white;
-    background-color: black;
+    border: 2px solid grey;
+    background-color: white;
 }
 
 .first:hover {
@@ -38,12 +38,12 @@ body {
     color: #242222;
 }
 
-.second {
-     border: 2px solid black;
+.third {
+    border: 2px solid black;
     background-color: white;
 }
 
-.second:hover {
+.third:hover {
     text-decoration: underline;
     color: #747272;
 }
