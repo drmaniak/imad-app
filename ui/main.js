@@ -13,7 +13,7 @@ function main(){
     });
     $('.img-large').on('click', function(){
         $(this).animate({width:'187px'}, 500);
-        $(this).toggleClass('img-large');
+        $(this).toggleClass('img-medium');
     });
     
     /*var marginLeft = 0;
