@@ -4,8 +4,8 @@ function main(){
     $('.second').hide();
     $('.first').on('click', function (){
         $('.second').slideToggle(500);
-        $(this).toggleClass()
-    })
+        $(this).toggleClass('third');
+    });
     
 }
 $(document).ready(main);
