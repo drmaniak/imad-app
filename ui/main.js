@@ -7,8 +7,14 @@ function main(){
         $(this).toggleClass('third');
     });
     var $image = $('#madi');
+    function moveRight(){
+        marginLeft = marginLeft + 10;
+        $image.css("marginLeft", marginLeft + "px");
+    }
     $image.on('click', function(){
-        $image.css("marginLeft", "100px");
+        var interval = setInterval(moveRight, 1000);
+        
+    //    $image.css("marginLeft", "100px");
     });
     
 }
