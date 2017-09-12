@@ -80,7 +80,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/article-zero', function (req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'sample.html'));
+   res.sendFile(path.join(__dirname, 'imad-app', 'sample.html'));
    
 });
 app.get('/:articleName', function(req, res){
