@@ -80,6 +80,18 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+//Sample Webapp code begins
+app.get('/article-zero', function (req, res){
+   res.sendFile(path.join(__dirname, 'ui', 'sample.html'));
+});
+app.get('/ui/sample.css', function(req, res){
+    res.sendFile(path.join(__dirname, 'ui', 'sample.css'));
+});
+app.get('/ui/sample.js', function(req, res){
+    res.sendFile(path.join(__dirname, 'ui', 'sample.js'));
+});
+// Sample webapp code ends
+
 app.get('/:articleName', function(req, res){
     var articleName = req.params.articleName;
     res.send(createTemplate(articles[articleName])); 
@@ -97,17 +109,7 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-//Sample Webapp code begins
-app.get('/article-zero', function (req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'sample.html'));
-});
-app.get('/ui/sample.css', function(req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'sample.css'));
-});
-app.get('/ui/sample.js', function(req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'sample.js'));
-});
-// Sample webapp code ends
+
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
