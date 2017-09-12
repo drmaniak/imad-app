@@ -3,6 +3,7 @@ function main(){
     $('.first').fadeIn(500);
     $('.second').hide();
     $('.first').on('click', function (){
+        $('.first h1').text("Oh no, You clicked me");
         $('.second').slideToggle(500);
         $(this).toggleClass('third');
     });
