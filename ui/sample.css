@@ -2,7 +2,6 @@
    width: 960px; 
 }
 
-/
 /*    Header    */
 .header {
    background-color: rgba(255,255,255,0.95);
@@ -83,7 +82,7 @@
   
   font-size: 40px;
   margin-top: 105px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .slide-copy h2 {
@@ -193,7 +192,7 @@
 .get-app {
   list-style: none;
   padding-bottom: 9px;
-  padding-left: 0px;
+  padding-left: 0;
   padding-top: 9px;
 }
 
