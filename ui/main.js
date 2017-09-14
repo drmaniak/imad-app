@@ -2,7 +2,7 @@ function main(){
     var button = $("#counter");
     button.click(function(){
         //Create a request object
-        var request = XMLHttpRequest();
+        var request =new XMLHttpRequest();
         //capture a response and store it in a variable
         request.onreadystatechange = function() {
             if(request.readyState === XMLHttpRequest.DONE){
@@ -23,3 +23,10 @@ function main(){
     
 }
 $(document).ready(main);
+
+
+// var button = document.getElementById('counter');
+
+// button.onClick = function(){
+//     var request = XML
+// };
