@@ -1,27 +1,11 @@
 function main(){
-    $('.first').hide();
-    $('.first').fadeIn(500);
-    $('.second').hide();
-    $('.first').on('click', function (){
-        $('.first h1').text("Oh no, You clicked me");
-        $('.second').slideToggle(500);
-        $(this).toggleClass('third');
+    var counter = 0;
+    var button = $("#counter");
+    button.click(function(){
+        counter += 1;
+        var span = $("#count"); 
+        span.html(counter);
     });
-    var $image = $('#madi');
-    $('.img-medium').on('click', function(){
-        $(this).animate({width:'300px'}, 500);
-    });
-    
-    /*var marginLeft = 0;
-    function moveRight(){
-        marginLeft = marginLeft + 1;
-        $image.css("marginLeft", marginLeft + "px");
-    }
-    $image.on('click', function(){
-        var interval = setInterval(moveRight, 50);
-        
-    //    $image.css("marginLeft", "100px");
-    });*/
     
 }
 $(document).ready(main);
