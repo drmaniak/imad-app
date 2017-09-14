@@ -1,4 +1,4 @@
-function main(){
+var main= function(){
     var button = $("#counter");
     button.click(function(){
         //Create a request object
@@ -18,15 +18,27 @@ function main(){
         //Make a request
         request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/counter', true);
         request.send(null);        
-        
+            
     });
-    
-}
+    //submit name
+    var nameInput = $('#name');
+    var name = nameInput.val();
+    var submit = $("#submit_btn");
+    submit.click(function(){
+        //make a request to the server and send name
+        // Capture a list of name and render it as a list
+        
+        var names =['name1', 'name2', 'name3'];
+        var list = "";
+        for(var i=0;i<names.length; i++){
+           list+= "<li>" + names[i] + "</li>"; 
+        }
+    });   
+};
+
+
+
 $(document).ready(main);
 
 
-// var button = document.getElementById('counter');
 
-// button.onClick = function(){
-//     var request = XML
-// };
