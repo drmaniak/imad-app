@@ -1,10 +1,21 @@
 function main(){
-    var counter = 0;
     var button = $("#counter");
     button.click(function(){
-        counter += 1;
-        var span = $("#count"); 
-        span.html(counter);
+        
+        var request = XMLHttpRequest();
+        
+        request.onreadystatechange = function() {
+            if(request.readyState === XMLHttpRequest.DONE){
+                //take action
+                if(request.status === 200){
+                    var counter = request.responseText;
+                    var span = $("#count"); 
+                    span.html(counter);
+                }
+            }
+        };
+        
+        
     });
     
 }
