@@ -21,8 +21,7 @@ var main= function(){
             
     });
     //submit name
-    var nameInput = $("#name");
-    var name = nameInput.val();
+    
     var submit = $("#submit_btn");
     submit.click(function(){
         //make a request to the server and send name
@@ -48,6 +47,9 @@ var main= function(){
             }
         };
         
+        
+        var nameInput = $("#name");
+        var name = nameInput.val();
         //Make a request
         request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/submit-name?name=' +name, true);
         request.send(null);
