@@ -97,8 +97,8 @@ app.get('/ui/sample.js', function(req, res){
     res.sendFile(path.join(__dirname, 'ui', 'sample.js'));
 });
 // Sample webapp code ends
-var comments=[];
 
+var comments=[];
 app.get('/comments', function(req, res){
    var comment = req.query.comment;
    
@@ -106,6 +106,7 @@ app.get('/comments', function(req, res){
    
    res.send(JSON.stringify(comments));
 });
+
 var names=[];
 app.get('/submit-name', function(req, res){
    var name = req.query.name;
