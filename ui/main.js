@@ -54,6 +54,32 @@ var main= function(){
         request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/submit-name?name=' +name, true);
         request.send(null);
     });   
+    
+    var post = $("#post_btn");
+    post.click(function(){
+        var request =  new XMLHttpRequest();
+        
+        request.onreadystatechange = function(){
+            if(request.readyState === XMLHttpRequest.DONE){
+                if(request.status === 200){
+                    var comments = request.responseText;
+                    comments = JSON.parse(comments);
+                    var list = "";
+                    for(var i=0; i<list.length; i++){
+                        list+= "<li>" + comments[i] + "</li>";
+                    }
+                    var ul = $("#commentlist");
+                    ul.html(list);
+                }
+            }
+        };
+        var commentInput = $("#comment");
+        var comment = commentInput.val();
+        
+        request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/comments?comment=' + comment, true);
+        request.send(null);
+    });
+    
 };
 
 
