@@ -28,13 +28,29 @@ var main= function(){
         //make a request to the server and send name
         // Capture a list of name and render it as a list
         
-        var names =['name1', 'name2', 'name3', 'name4'];
-        var list = "";
-        for(var i=0;i<names.length; i++){
-           list+= "<li>" + names[i] + "</li>"; 
-        }
-        var ul = $("#namelist");
-        ul.html(list);
+        //Create a request object
+        var request =new XMLHttpRequest();
+        //capture a response and store it in a variable
+        request.onreadystatechange = function() {
+            if(request.readyState === XMLHttpRequest.DONE){
+                //take action
+                if(request.status === 200){
+                    var names = request.responseText;
+                    names = JSON.parse(names);
+                    var list = "";
+                    for(var i=0;i<names.length; i++){
+                    list+= "<li>" + names[i] + "</li>"; 
+                    }
+                    var ul = $("#namelist");
+                    ul.html(list);
+                    
+                }
+            }
+        };
+        
+        //Make a request
+        request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/submit-names?name='+name, true);
+        request.send(null);
     });   
 };
 
