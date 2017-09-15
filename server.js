@@ -99,7 +99,7 @@ app.get('/ui/sample.js', function(req, res){
 // Sample webapp code ends
 
 var names=[];
-app.get('/submit-names', function(req, res){
+app.get('/submit-name', function(req, res){
    var name = req.query.name;
    
    names.push(name);
