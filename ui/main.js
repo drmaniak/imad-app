@@ -22,7 +22,7 @@ var main= function(){
     });
     //submit name
     var nameInput = $('#name');
-    var name = nameInput.val();
+    var name = nameInput.value;
     var submit = $("#submit_btn");
     submit.click(function(){
         //make a request to the server and send name
