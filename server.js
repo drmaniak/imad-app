@@ -98,6 +98,15 @@ app.get('/ui/sample.js', function(req, res){
 });
 // Sample webapp code ends
 
+var names=[];
+app.get('/submit-names', function(req, res){
+   var name = req.query.name;
+   
+   names.push(name);
+   //JSON: Javascript object notation
+   res.send(JSON.stringify(names));
+});
+
 app.get('/:articleName', function(req, res){
     var articleName = req.params.articleName;
     res.send(createTemplate(articles[articleName])); 
@@ -115,14 +124,6 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-var names=[];
-app.get('/submit-names', function(req, res){
-   var name = req.query.name;
-   
-   names.push(name);
-   //JSON: Javascript object notation
-   res.send(JSON.stringify(names));
-});
 
 
 
