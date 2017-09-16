@@ -51,7 +51,7 @@ var main= function(){
         var nameInput = $("#name");
         var name = nameInput.val();
         //Make a request
-        request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/submit-name?name=' +name, true);
+        request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/submit-name?names=' +name, true);
         request.send(null);
     });   
     
