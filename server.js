@@ -10,6 +10,7 @@ var articles ={
     title: "Article One",
     date: "September 11th 2017",
     heading: "This is Article one's page.",
+    comment: "Comment on article two's page",
     content: `<p>
                     Considering the gravity of the topic on hand, I suggest that you immediately cease this pursuit. One man's definition of something being interesting could only under the most arbitrary of circumstances hold true for the next. The arbitrary nature of these circumstances could somewhat be mitigated if there was some degree of familiarity between the two men in question. However, this is merely a disclaimer as one can only hope for a less than nominal amount of familiarity between say a kitten and a smilodon, or to draw a closer parallel to our relationship, between a man... and a <b>GOD</b>
                 </p>
@@ -23,6 +24,7 @@ var articles ={
     title: "Article Two",
     date: "September 11th 2017",
     heading: "This is Article two's page.",
+    comment: "Comment on article two's page",
     content: `<p>
                     This is the first paragraph under article two!! Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor.
                 </p>
@@ -32,6 +34,7 @@ var articles ={
     title: "Article Three",
     date: "September 11th 2017",
     heading: "This is Article three's page.",
+    comment: "Comment on article two's page",
     content: `<p>
                     This is the first paragraph under article three!! Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor. Lorem Ipsum Dolor.
                 </p>
@@ -45,6 +48,7 @@ function createTemplate(data){
     var heading = data.heading;
     var date = data.date;
     var content = data.content;
+    var comment = data.comment;
     var htmlTemplate = `
         <html>
         <head>
@@ -53,6 +57,8 @@ function createTemplate(data){
             </title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link href="/ui/style.css" rel="stylesheet" />
+            <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp2/css/bootstrap.min.css" rel="stylesheet">
+            <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         </head>
         <body>
             <div class="container">
@@ -69,7 +75,22 @@ function createTemplate(data){
                 <div>
                     ${content}
                 </div>
+                <div>
+                    <form>
+                        <div class='form-group'>
+                            <textarea class='form-control status-box' id="comment" rows='2' placeholder="${comment}"></textarea>
+                        </div>
+                    </form>
+                    <div class="button-group pull-right">
+                        <button id="post_btn" type="submit" class="btn btn-primary">Post</button>
+                    </div>
+                    <ul id='commentlist' class="posts">
+                    </ul>
+                </div>
             </div>
+            <script src='https://code.jquery.com/jquery-3.1.0.min.js'>
+            </script>
+            <script type="text/javascript" src="/ui/main.js">
         </body>
     </html>
     `;
