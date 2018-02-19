@@ -111,6 +111,14 @@ app.get("/article-four", function(req, res){
     res.send("Article four requested and will be served");
 });
 
+app.get("/article-five", function(req, res){
+    res.send("Article five requested and will be served");
+});
+
+app.get("/article-six", function(req, res){
+    res.send("Article six requested and will be served");
+});
+
 //Sample Webapp code begins
 app.get('/article-zero', function (req, res){
    res.sendFile(path.join(__dirname, 'ui', 'sample.html'));
