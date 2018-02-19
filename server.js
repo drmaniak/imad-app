@@ -107,6 +107,10 @@ app.get('/counter', function(req, res){
     res.send(counter.toString());
 });
 
+app.get("/article-four", function(req, res){
+    res.send("Article four requested and will be served");
+});
+
 //Sample Webapp code begins
 app.get('/article-zero', function (req, res){
    res.sendFile(path.join(__dirname, 'ui', 'sample.html'));
