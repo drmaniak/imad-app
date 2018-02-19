@@ -43,6 +43,63 @@ var articles ={
     
 };
 
+var articleFour = {
+    title: 'Article-four| Manpak',
+    heading: 'Article-four',
+    date: '19th Feb 2018',
+    content: `
+        <p>
+            This is article four's content.
+        </p>
+        <p>
+            You shitpom
+        </p>
+    `
+};
+
+
+function createTemplate1(data){
+    var title = data.title;
+    var heading = data.heading;
+    var date = data.date;
+    var content = data.content;
+    
+    var htmlTemplate1 = `
+        <html>
+            <head>
+                <title>
+                    ${title}
+                </title>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link href="/ui/style.css" rel="stylesheet" />
+                <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp2/css/bootstrap.min.css" rel="stylesheet">
+                <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+            </head>
+            <body>
+                <div class="container">
+                    <div>
+                        <a href="/">Home</a>
+                    </div>
+                    <hr/>
+                    <h3>
+                        ${heading}
+                    </h3>
+                    <div>
+                        ${date}
+                    </div>
+                    <div>
+                        ${content}
+                    </div>
+                </div>
+                <script src='https://code.jquery.com/jquery-3.1.0.min.js'>
+                </script>
+                <script type="text/javascript" src="/ui/main.js"></script>
+            </body>
+        </html>
+        `;
+        return htmlTemplate1;
+}
+
 function createTemplate(data){
     var title = data.title;
     var heading = data.heading;
@@ -108,7 +165,7 @@ app.get('/counter', function(req, res){
 });
 
 app.get("/article-four", function(req, res){
-    res.send("Article four requested and will be served");
+    res.send(createTemplate1(articleFour));
 });
 
 app.get("/article-five", function(req, res){
