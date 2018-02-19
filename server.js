@@ -43,21 +43,48 @@ var articles ={
     
 };
 
-var articleFour = {
-    title: 'Article-four| Manpak',
-    heading: 'Article-four',
-    date: '19th Feb 2018',
-    content: `
-        <p>
-            This is article four's content.
-        </p>
-        <p>
-            You shitpom
-        </p>
-    `
+var articles1 = {
+    'article-four' : {
+        title: 'Article-four| Manpak',
+        heading: 'Article-four',
+        date: '19th Feb 2018',
+        content: `
+            <p>
+                This is article four's content.
+            </p>
+            <p>
+                You shitpom
+            </p>
+        `
+    },
+    'article-five' : {
+        title: 'Article-five| Manpak',
+        heading: 'Article-five',
+        date: '19th Feb 2018',
+        content: `
+            <p>
+                This is article five's content.
+            </p>
+            <p>
+                You shittypom
+            </p>
+        `
+    },
+    'article-six' : {
+        title: 'Article-six| Manpak',
+        heading: 'Article-six',
+        date: '19th Feb 2018',
+        content: `
+            <p>
+                This is article six's content.
+            </p>
+            <p>
+                You shitpommen
+            </p>
+        `
+    },
+
 };
-
-
 function createTemplate1(data){
     var title = data.title;
     var heading = data.heading;
@@ -164,18 +191,6 @@ app.get('/counter', function(req, res){
     res.send(counter.toString());
 });
 
-app.get("/article-four", function(req, res){
-    res.send(createTemplate1(articleFour));
-});
-
-app.get("/article-five", function(req, res){
-    res.send("Article five requested and will be served");
-});
-
-app.get("/article-six", function(req, res){
-    res.send("Article six requested and will be served");
-});
-
 //Sample Webapp code begins
 app.get('/article-zero', function (req, res){
    res.sendFile(path.join(__dirname, 'ui', 'sample.html'));
@@ -209,6 +224,12 @@ app.get('/submit-name', function(req, res){
 app.get('/:articleName', function(req, res){
     var articleName = req.params.articleName;
     res.send(createTemplate(articles[articleName])); 
+});
+
+app.get('/:articleName1', function(req, res){
+    // articleName1 == article-four or article-five or article-six
+    // articles1[articleName1] == selected {} object based on url
+    res.send(createTemplate1(articles1[articleName1]));
 });
 
 app.get('/ui/style.css', function (req, res) {
