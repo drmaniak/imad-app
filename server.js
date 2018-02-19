@@ -229,6 +229,7 @@ app.get('/:articleName', function(req, res){
 app.get('/:articleName1', function(req, res){
     // articleName1 == article-four or article-five or article-six
     // articles1[articleName1] == selected {} object based on url
+    var articleName1 = req.params.articleName1;
     res.send(createTemplate1(articles1[articleName1]));
 });
 
