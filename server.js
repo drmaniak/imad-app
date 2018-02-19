@@ -221,17 +221,19 @@ app.get('/submit-name', function(req, res){
    res.send(JSON.stringify(names));
 });
 
-app.get('/:articleName', function(req, res){
-    var articleName = req.params.articleName;
-    res.send(createTemplate(articles[articleName])); 
-});
-
 app.get('/:articleName1', function(req, res){
     // articleName1 == article-four or article-five or article-six
     // articles1[articleName1] == selected {} object based on url
     var articleName1 = req.params.articleName1;
     res.send(createTemplate1(articles1[articleName1]));
 });
+
+app.get('/:articleName', function(req, res){
+    var articleName = req.params.articleName;
+    res.send(createTemplate(articles[articleName])); 
+});
+
+
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
