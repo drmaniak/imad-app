@@ -82,7 +82,7 @@ var main= function(){
     
 };
 
-var pic = document.getElementById("Madi");
+var pic = document.getElementById("madi");
 pic.onclick = function () {
   pic.style.marginLeft = '200px';  
 };
