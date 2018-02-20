@@ -83,8 +83,14 @@ var main= function(){
 };
 
 var pic = document.getElementById("madi");
+var marginLeft = 0;
+function moveRight(clicked) {
+    marginLeft += 10;
+    clicked.style.marginLeft = marginLeft + "px";
+}
+
 pic.onclick = function () {
-  pic.style.marginLeft = '200px';  
+  var interval = setInterval(moveRight(pic), 100);  
 };
 
 $(document).ready(main);
