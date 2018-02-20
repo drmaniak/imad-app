@@ -84,13 +84,13 @@ var main= function(){
 
 var pic = document.getElementById("madi");
 var marginLeft = 0;
-function moveRight(clicked) {
-    marginLeft += 10;
-    clicked.style.marginLeft = marginLeft + "px";
+function moveRight() {
+    marginLeft = marginLeft + 10;
+    pic.style.marginLeft = marginLeft + "px";
 }
 
 pic.onclick = function () {
-  var interval = setInterval(moveRight(pic), 100);  
+  var interval = setInterval(moveRight, 100);  
 };
 
 $(document).ready(main);
