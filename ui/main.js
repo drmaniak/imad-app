@@ -82,7 +82,10 @@ var main= function(){
     
 };
 
-
+var pic = document.getElementById("Madi");
+pic.onclick = function () {
+  pic.style.marginLeft = '200px';  
+};
 
 $(document).ready(main);
 
