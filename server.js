@@ -143,7 +143,8 @@ app.get('/', function (req, res) {
 var counter = 0;
 app.get('/counter', function(req, res){
     counter += 1;
-    res.send(counter.toString());
+    // can only send strings as responses, so counter.toString() is required
+    res.send(counter.toString()); 
 });
 
 //Sample Webapp code begins
