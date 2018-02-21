@@ -1,15 +1,26 @@
 // counter code
 var button = document.getElementById('counter');
-var counter = 0;
+
 button.onclick = function() {
     // Make a request to counter endpoint
-    
+    var request = new XMLHttpRequest();
     // Capture the response and store it in a variable
+    request.onreadystatechange = function() {
+      if (request.readyState === 4){
+        //   take some action
+        if (request.status === 200) {
+            var counter = request.responseText;
+            var span = document.getElementById('count');
+            span.innerHTML = counter.toString();
+        }
+      }  
+        
+    };
+    //  Create a request object
+    request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/counter', true);
+    request.send(null);
+
     
-    //  Render the variable in the correct span
-    counter += 1;
-    var span = document.getElementById('count');
-    span.innerHTML = counter.toString();
 };
 
 var main= function(){
