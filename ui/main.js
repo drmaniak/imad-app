@@ -27,11 +27,12 @@
 // SUBMIT NAME CODE WITHOUT JQUERY
 
     var nameInput = document.getElementById("name");
-    var name = nameInput.value;
+    var name = "";
     var submit = document.getElementById("submit_btn");
     
     submit.onclick = function() {
         // Make a request to the server and send a name
+        name = nameInput.value;
         var request = new XMLHttpRequest();
         request.onreadystatechange = function() {
             if (request.readyState === XMLHttpRequest.DONE) {
