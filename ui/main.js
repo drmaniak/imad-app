@@ -1,30 +1,51 @@
 // counter code
-var button = document.getElementById('counter');
+// var button = document.getElementById('counter');
 
-button.onclick = function() {
-    // Make a request to counter endpoint
-    var request = new XMLHttpRequest();
-    // Capture the response and store it in a variable
-    request.onreadystatechange = function() {
-      if (request.readyState === XMLHttpRequest.DONE){
-        //   take some action
-        if (request.status === 200) {
-            var counter = request.responseText;
-            var span = document.getElementById('count');
-            span.innerHTML = counter.toString();
-        }
-      }  
+// button.onclick = function() {
+//     // Make a request to counter endpoint
+//     var request = new XMLHttpRequest();
+//     // Capture the response and store it in a variable
+//     request.onreadystatechange = function() {
+//       if (request.readyState === XMLHttpRequest.DONE){
+//         //   take some action
+//         if (request.status === 200) {
+//             var counter = request.responseText;
+//             var span = document.getElementById('count');
+//             span.innerHTML = counter.toString();
+//         }
+//       }  
         
-    };
-    //  Create a request object
-    request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/counter', true);
-    request.send(null);
+//     };
+//     //  Create a request object
+//     request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/counter', true);
+//     request.send(null);
 
     
-};
+// };
 
 var main= function(){
     
+    var button = $("#counter");
+    button.click(function() {
+        var request = new XMLHttpRequest();
+        
+        request.onreadystatechange = function() {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              if(request.status === 200) {
+                  var counter = request.responseText;
+                  var span = $("#count");
+                  span.hml(counter);
+              } 
+              else {
+                  console.log("The request status is: " + request.status);
+                  alert("The request status is: " + request.status);
+              }
+          }  
+        };
+        
+        request.open("GET", "http://manickvennimalai.imad.hasura-app.io/counter", true );
+        request.send(null);
+    });
     
     
     
