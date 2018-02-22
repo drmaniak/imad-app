@@ -97,7 +97,7 @@ var main= function(){
                        list += "<li>" + names[i] + "</li>";
                    }
                    var li = $("#nameList");
-                   li.HTML(list);
+                   li.html(list);
                }
            }
        };
