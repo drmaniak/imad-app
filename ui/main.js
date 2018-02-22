@@ -1,27 +1,28 @@
-// counter code
-// var button = document.getElementById('counter');
+// COUNTER CODE WITHOUT JQUERY
 
-// button.onclick = function() {
-//     // Make a request to counter endpoint
-//     var request = new XMLHttpRequest();
-//     // Capture the response and store it in a variable
-//     request.onreadystatechange = function() {
-//       if (request.readyState === XMLHttpRequest.DONE){
-//         //   take some action
-//         if (request.status === 200) {
-//             var counter = request.responseText;
-//             var span = document.getElementById('count');
-//             span.innerHTML = counter.toString();
-//         }
-//       }  
-        
-//     };
-//     //  Create a request object
-//     request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/counter', true);
-//     request.send(null);
-
+    // var button = document.getElementById('counter');
     
-// };
+    // button.onclick = function() {
+    //     // Make a request to counter endpoint
+    //     var request = new XMLHttpRequest();
+    //     // Capture the response and store it in a variable
+    //     request.onreadystatechange = function() {
+    //       if (request.readyState === XMLHttpRequest.DONE){
+    //         //   take some action
+    //         if (request.status === 200) {
+    //             var counter = request.responseText;
+    //             var span = document.getElementById('count');
+    //             span.innerHTML = counter.toString();
+    //         }
+    //       }  
+            
+    //     };
+    //     //  Create a request object
+    //     request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/counter', true);
+    //     request.send(null);
+    
+        
+    // };
 
 var main= function(){
     
@@ -47,32 +48,7 @@ var main= function(){
         request.send(null);
     });
     
-    
-    
-    
-    // var button = $("#counter");
-    // button.click(function(){
-    //     //Create a request object
-    //     var request =new XMLHttpRequest();
-    //     //capture a response and store it in a variable
-    //     request.onreadystatechange = function() {
-    //         if(request.readyState === XMLHttpRequest.DONE){
-    //             //take action
-    //             if(request.status === 200){
-    //                 var counter = request.responseText;
-    //                 var span = $("#count"); 
-    //                 span.html(counter);
-    //             }
-    //         }
-    //     };
-        
-    //     //Make a request
-    //     request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/counter', true);
-    //     request.send(null);        
-            
-    // });
-    //submit name
-    
+    //  Submit name
     var submit = $("#submit_btn");
     submit.click(function(){
         //make a request to the server and send name
