@@ -134,16 +134,17 @@ var main= function(){
         request.send(null);
     });
     
-    var pic = $("#madi");
-    var marginLeft = 0;
-    function moveRight() {
-        marginLeft = marginLeft + 10;
-        pic.style.marginLeft = marginLeft + "px";
-    }
-    pic.click(function() {
-        var interval = setInterval(moveRight, 100);
-    });
-    
+};
+
+var pic = document.getElementById("madi");
+var marginLeft = 0;
+function moveRight() {
+    marginLeft = marginLeft + 10;
+    pic.style.marginLeft = marginLeft + "px";
+}
+
+pic.onclick = function () {
+  var interval = setInterval(moveRight, 100);  
 };
 
 $(document).ready(main);
