@@ -27,7 +27,7 @@
 // SUBMIT NAME CODE WITHOUT JQUERY
 
     var nameInput = document.getElementById("name");
-    var name = nameInput.value;
+    var name = 0;
     var submit = document.getElementById("submit_btn");
     
     submit.onclick = function() {
@@ -38,7 +38,8 @@
         for(var i = 0; i < names.length; i++) {
             list += "<li>" + names[i] + "</li>";
         }
-        var ul = document.getElementById()
+        var ul = document.getElementById("nameList");
+        ul.innerHTML = list;
     };
 
 var main= function(){
@@ -65,39 +66,39 @@ var main= function(){
         request.send(null);
     });
     
-    //  Submit name
-    var submit = $("#submit_btn");
-    submit.click(function(){
-        //make a request to the server and send name
-        // Capture a list of name and render it as a list
+    // //  Submit name
+    // var submit = $("#submit_btn");
+    // submit.click(function(){
+    //     //make a request to the server and send name
+    //     // Capture a list of name and render it as a list
         
-        //Create a request object
-        var request =new XMLHttpRequest();
-        //capture a response and store it in a variable
-        request.onreadystatechange = function() {
-            if (request.readyState === XMLHttpRequest.DONE){
-                //take action
-                if (request.status === 200) {
-                        var names = request.responseText;
-                        names = JSON.parse(names);
-                        var list = "";
-                        for (var i=0;i<names.length; i++) {
-                        list+= "<li>" + names[i] + "</li>"; 
-                    }
-                    var ul = $("#namelist");
-                    ul.html(list);
+    //     //Create a request object
+    //     var request =new XMLHttpRequest();
+    //     //capture a response and store it in a variable
+    //     request.onreadystatechange = function() {
+    //         if (request.readyState === XMLHttpRequest.DONE){
+    //             //take action
+    //             if (request.status === 200) {
+    //                     var names = request.responseText;
+    //                     names = JSON.parse(names);
+    //                     var list = "";
+    //                     for (var i=0;i<names.length; i++) {
+    //                     list+= "<li>" + names[i] + "</li>"; 
+    //                 }
+    //                 var ul = $("#namelist");
+    //                 ul.html(list);
                     
-                }
-            }
-        };
+    //             }
+    //         }
+    //     };
         
         
-        var nameInput = $("#name");
-        var name = nameInput.val();
-        //Make a request
-        request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/submit-name?name=' +name, true);
-        request.send(null);
-    });   
+    //     var nameInput = $("#name");
+    //     var name = nameInput.val();
+    //     //Make a request
+    //     request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/submit-name?name=' +name, true);
+    //     request.send(null);
+    // });   
     
     var post = $("#post_btn");
     post.click(function(){
