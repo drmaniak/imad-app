@@ -108,39 +108,6 @@ var main= function(){
        request.send(null);
     });
     
-    // //  Submit name
-    // var submit = $("#submit_btn");
-    // submit.click(function(){
-    //     //make a request to the server and send name
-    //     // Capture a list of name and render it as a list
-        
-    //     //Create a request object
-    //     var request =new XMLHttpRequest();
-    //     //capture a response and store it in a variable
-    //     request.onreadystatechange = function() {
-    //         if (request.readyState === XMLHttpRequest.DONE){
-    //             //take action
-    //             if (request.status === 200) {
-    //                     var names = request.responseText;
-    //                     names = JSON.parse(names);
-    //                     var list = "";
-    //                     for (var i=0;i<names.length; i++) {
-    //                     list+= "<li>" + names[i] + "</li>"; 
-    //                 }
-    //                 var ul = $("#namelist");
-    //                 ul.html(list);
-                    
-    //             }
-    //         }
-    //     };
-        
-        
-    //     var nameInput = $("#name");
-    //     var name = nameInput.val();
-    //     //Make a request
-    //     request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/submit-name?name=' +name, true);
-    //     request.send(null);
-    // });   
     
     var post = $("#post_btn");
     post.click(function(){
@@ -167,17 +134,16 @@ var main= function(){
         request.send(null);
     });
     
-};
-
-var pic = document.getElementById("madi");
-var marginLeft = 0;
-function moveRight() {
-    marginLeft = marginLeft + 10;
-    pic.style.marginLeft = marginLeft + "px";
-}
-
-pic.onclick = function () {
-  var interval = setInterval(moveRight, 100);  
+    var pic = $("#madi");
+    var marginLeft = 0;
+    function moveRight() {
+        marginLeft = marginLeft + 10;
+        pic.style.marginLeft = marginLeft + "px";
+    }
+    pic.click(function() {
+        var interval = setInterval(moveRight, 100);
+    });
+    
 };
 
 $(document).ready(main);
