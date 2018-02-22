@@ -180,7 +180,7 @@ app.get('/comments', function(req, res){
 var names = [];
 app.get('/submit-name', function(req, res) {
     //Get the name from the request
-    var name = req.query.name; 
+    var name = req.query.name; //Takes the value from the query-string ?name=_____
     
     names.push(name);
     
