@@ -102,7 +102,7 @@ var main= function(){
            }
        };
        var nameList = $("#name");
-       var name = nameList.value;
+       var name = nameList.val();
        
        request.open("GET", "http://manickvennimalai.imad.hasura-app.io/submit-name?name="+ name, true);
        request.send(null);
