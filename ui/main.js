@@ -26,13 +26,11 @@
     
 // SUBMIT NAME CODE WITHOUT JQUERY
 
-    var nameInput = document.getElementById("name");
-    var name = "";
+    
     var submit = document.getElementById("submit_btn");
     
     submit.onclick = function() {
         // Make a request to the server and send a name
-        name = nameInput.value;
         var request = new XMLHttpRequest();
         request.onreadystatechange = function() {
             if (request.readyState === XMLHttpRequest.DONE) {
@@ -48,6 +46,11 @@
                 }
             }
         };
+        
+        // Variables for name box and name storage
+        var nameInput = document.getElementById("name");
+        var name = nameInput.value;
+        
         request.open("GET", "http://manickvennimalai.imad.hasura-app.io/submit-name?name="+ name, true );
         request.send(null);
         // Capture a list of names and render it as a list
