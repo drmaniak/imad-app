@@ -147,17 +147,17 @@ app.get('/counter', function(req, res){
     res.send(counter.toString()); 
 });
 
-//Sample Webapp code begins
-app.get('/article-zero', function (req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'sample.html'));
-});
-app.get('/ui/sample.css', function(req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'sample.css'));
-});
-app.get('/ui/sample.js', function(req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'sample.js'));
-});
-// Sample webapp code ends
+// //Sample Webapp code begins
+// app.get('/article-zero', function (req, res){
+//   res.sendFile(path.join(__dirname, 'ui', 'sample.html'));
+// });
+// app.get('/ui/sample.css', function(req, res){
+//     res.sendFile(path.join(__dirname, 'ui', 'sample.css'));
+// });
+// app.get('/ui/sample.js', function(req, res){
+//     res.sendFile(path.join(__dirname, 'ui', 'sample.js'));
+// });
+// // Sample webapp code ends
 
 var comments=[];
 app.get('/comments', function(req, res){
