@@ -168,15 +168,6 @@ app.get('/comments', function(req, res){
    res.send(JSON.stringify(comments));
 });
 
-// var names=[];
-// app.get('/submit-name', function(req, res){
-//   var name = req.query.name;
-   
-//   names.push(name);
-//   //JSON: Javascript object notation
-//   res.send(JSON.stringify(names));
-// });
-
 var names = [];
 app.get('/submit-name', function(req, res) {
     //Get the name from the request
@@ -188,6 +179,8 @@ app.get('/submit-name', function(req, res) {
     
     res.send(JSON.stringify(names)); //TODO
 });
+
+
 
 
 app.get('/:articleName', function(req, res){
