@@ -25,41 +25,40 @@
     // };
     
 // SUBMIT NAME CODE WITHOUT JQUERY
-
     
-    var submit = document.getElementById("submit_btn");
+    // var submit = document.getElementById("submit_btn");
     
-    submit.onclick = function() {
-        // Make a request to the server and send a name
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function() {
-            if (request.readyState === XMLHttpRequest.DONE) {
-                if(request.status === 200) {
-                    var names = request.responseText;
-                    names = JSON.parse(names);
-                    var list = "";
-                    for(var i = 0; i < names.length; i++) {
-                        list += "<li>" + names[i] + "</li>";
-                    }
-                    var ul = document.getElementById("nameList");
-                    ul.innerHTML = list;
-                }
-            }
-        };
+    // submit.onclick = function() {
+    //     // Make a request to the server and send a name
+    //     var request = new XMLHttpRequest();
+    //     request.onreadystatechange = function() {
+    //         if (request.readyState === XMLHttpRequest.DONE) {
+    //             if(request.status === 200) {
+    //                 var names = request.responseText;
+    //                 names = JSON.parse(names);
+    //                 var list = "";
+    //                 for(var i = 0; i < names.length; i++) {
+    //                     list += "<li>" + names[i] + "</li>";
+    //                 }
+    //                 var ul = document.getElementById("nameList");
+    //                 ul.innerHTML = list;
+    //             }
+    //         }
+    //     };
         
-        // Variables for name box and name storage
-        var nameInput = document.getElementById("name");
-        var name = nameInput.value;
+    //     // Variables for name box and name storage
+    //     var nameInput = document.getElementById("name");
+    //     var name = nameInput.value;
         
-        request.open("GET", "http://manickvennimalai.imad.hasura-app.io/submit-name?name="+ name, true );
-        request.send(null);
-        // Capture a list of names and render it as a list
+    //     request.open("GET", "http://manickvennimalai.imad.hasura-app.io/submit-name?name="+ name, true );
+    //     request.send(null);
+    //     // Capture a list of names and render it as a list
         
-    };
+    // };
     
 
 var main= function(){
-    
+    // COUNTER CODE JQUERY
     var button = $("#counter");
     button.click(function() {
         var request = new XMLHttpRequest();
@@ -80,6 +79,33 @@ var main= function(){
         
         request.open("GET", "http://manickvennimalai.imad.hasura-app.io/counter", true );
         request.send(null);
+    });
+    
+    // NAMELIST CODE JQUERY
+    
+    
+    var submit = $("#submit_btn");
+    submit.click(function() {
+       var request = new XMLHttpRequest();
+       request.onreadystatechange = function(){
+           if (request.readyState === 4) {
+               if (request.status === 200) {
+                   var names = request.responseText;
+                   names = JSON.parse(names);
+                   var list = "";
+                   for (var i = 0; i < names.length; i++) {
+                       list += "<li>" + names[i] + "</li>";
+                   }
+                   var li = $("#nameList");
+                   li.HTML(list);
+               }
+           }
+       };
+       var nameList = $("#name");
+       var name = nameList.value;
+       
+       request.open("GET", "http://manickvennimalai.imad.hasura-app.io/submit-name?name="+ name, true);
+       request.send(null);
     });
     
     // //  Submit name
