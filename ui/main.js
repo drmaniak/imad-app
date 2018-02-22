@@ -27,20 +27,31 @@
 // SUBMIT NAME CODE WITHOUT JQUERY
 
     var nameInput = document.getElementById("name");
-    var name = 0;
+    var name = nameInput.value;
     var submit = document.getElementById("submit_btn");
     
     submit.onclick = function() {
         // Make a request to the server and send a name
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+            if (request.readyState === XMLHttpRequest.DONE) {
+                if(request.status === 200) {
+                    var names = request.responseText;
+                    var list = "";
+                    for(var i = 0; i < names.length; i++) {
+                        list += "<li>" + names[i] + "</li>";
+                    }
+                    var ul = document.getElementById("nameList");
+                    ul.innerHTML = list;
+                }
+            }
+        };
+        request.open("GET", "http://manickvennimalai.imad.hasura-app.io/submit-button?name="+ name, true );
+        request.send(null);
         // Capture a list of names and render it as a list
-        var names = ["name1", "name2", "name3"];
-        var list = "";
-        for(var i = 0; i < names.length; i++) {
-            list += "<li>" + names[i] + "</li>";
-        }
-        var ul = document.getElementById("nameList");
-        ul.innerHTML = list;
+        
     };
+    
 
 var main= function(){
     
