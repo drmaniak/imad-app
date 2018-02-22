@@ -31,11 +31,11 @@ var main= function(){
         
         request.onreadystatechange = function() {
           if (request.readyState === XMLHttpRequest.DONE) {
-              if(request.status === 200) {
-                  var counter = request.responseText;
-                  var span = $("#count");
-                  span.hml(counter);
-              } 
+              if(request.status === 200){
+                    var counter = request.responseText;
+                    var span = $("#count"); 
+                    span.html(counter);
+                } 
               else {
                   console.log("The request status is: " + request.status);
                   alert("The request status is: " + request.status);
