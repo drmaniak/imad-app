@@ -23,6 +23,18 @@
     
         
     // };
+    
+// SUBMIT NAME CODE WITHOUT JQUERY
+
+    var nameInput = document.getElementById("name");
+    var name = nameInput.value;
+    var submit = document.getElementById("submit_btn");
+    
+    submit.onclick = function() {
+        // Make a request to the server and send a name
+        // Capture a list of names and render it as a list
+        
+    }
 
 var main= function(){
     
@@ -58,14 +70,14 @@ var main= function(){
         var request =new XMLHttpRequest();
         //capture a response and store it in a variable
         request.onreadystatechange = function() {
-            if(request.readyState === XMLHttpRequest.DONE){
+            if (request.readyState === XMLHttpRequest.DONE){
                 //take action
-                if(request.status === 200){
-                    var names = request.responseText;
-                    names = JSON.parse(names);
-                    var list = "";
-                    for(var i=0;i<names.length; i++){
-                    list+= "<li>" + names[i] + "</li>"; 
+                if (request.status === 200) {
+                        var names = request.responseText;
+                        names = JSON.parse(names);
+                        var list = "";
+                        for (var i=0;i<names.length; i++) {
+                        list+= "<li>" + names[i] + "</li>"; 
                     }
                     var ul = $("#namelist");
                     ul.html(list);
