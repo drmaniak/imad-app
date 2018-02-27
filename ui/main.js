@@ -79,7 +79,7 @@
         var commentInput = document.getElementById("comment");
         var comment = commentInput.value;
         
-        request.open("GET", "http://manickvennimalai.imad.hasura-app.io/comment?comment=" + comment, true);
+        request.open("GET", "http://manickvennimalai.imad.hasura-app.io/comments?comment=" + comment, true);
         request.send(null);
     };
     
