@@ -56,6 +56,33 @@
         
     // };
     
+//  POST COMMENT CODE WITHOUT JQUERY
+
+    var post = document.getElementById("post_btn");
+    post.onclick = function() {
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function() {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              if (request.status === 200) {
+                  var comments = request.responseText;
+                  comments = JSON.parse(comments);
+                  var list = "";
+                  for (var i = 0; i < comments.length; i++) {
+                      list += "<li>" + comments[i] + "</li>";
+                  }
+                  var ul = document.getElementById("commentList");
+                  ul.innerHTML = list;
+              }
+          }  
+        };
+        
+        var commentInput = document.getElementById("comment");
+        var comment = commentInput.value;
+        
+        request.open("GET", "http://manickvennimalai.imad.hasura-app.io/comment?comment=" + comment, true);
+        request.send(null);
+    };
+    
 
 var main= function(){
     // COUNTER CODE JQUERY
@@ -109,30 +136,30 @@ var main= function(){
     });
     
     
-    var post = $("#post_btn");
-    post.click(function(){
-        var request =  new XMLHttpRequest();
+    // var post = $("#post_btn");
+    // post.click(function(){
+    //     var request =  new XMLHttpRequest();
         
-        request.onreadystatechange = function(){
-            if(request.readyState === XMLHttpRequest.DONE){
-                if(request.status === 200){
-                    var comments = request.responseText;
-                    comments = JSON.parse(comments);
-                    var list = "";
-                    for(var i=0; i<comments.length; i++){
-                        list+= "<li>" + comments[i] + "</li>";
-                    }
-                    var ul = $("#commentlist");
-                    ul.html(list);
-                }
-            }
-        };
-        var commentInput = $("#comment");
-        var comment = commentInput.val();
+    //     request.onreadystatechange = function(){
+    //         if(request.readyState === XMLHttpRequest.DONE){
+    //             if(request.status === 200){
+    //                 var comments = request.responseText;
+    //                 comments = JSON.parse(comments);
+    //                 var list = "";
+    //                 for(var i=0; i<comments.length; i++){
+    //                     list+= "<li>" + comments[i] + "</li>";
+    //                 }
+    //                 var ul = $("#commentlist");
+    //                 ul.html(list);
+    //             }
+    //         }
+    //     };
+    //     var commentInput = $("#comment");
+    //     var comment = commentInput.val();
         
-        request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/comments?comment=' + comment, true);
-        request.send(null);
-    });
+    //     request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/comments?comment=' + comment, true);
+    //     request.send(null);
+    // });
     
 };
 
