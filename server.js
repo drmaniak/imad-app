@@ -205,15 +205,9 @@ app.get('/submit-name', function(req, res) {
 });
 
 
-
-
 app.get('/articles/:articleName', function(req, res){
     // articleName == article-one to article-six
     // articles[articleName] == selected {} object based on url
-    var articleName = req.params.articleName;
-    
-    var articleData;
-    
     pool.query("SELECT * from articles where title = " + req.params.articleName, function(err, result) {
        if (err) {
            res.status(500).send(err.toString());
