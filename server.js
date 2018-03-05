@@ -96,7 +96,7 @@ function createTemplate(data){
     var heading = data.heading;
     var date = data.date;
     var content = data.content;
-    var comment = data.comment;
+    // var comment = data.comment;
     var htmlTemplate = `
         <html>
         <head>
@@ -122,18 +122,6 @@ function createTemplate(data){
                 </div>
                 <div>
                     ${content}
-                </div>
-                <div>
-                    <form>
-                        <div class='form-group'>
-                            <textarea class='form-control status-box' id="comment" rows='2' placeholder="${comment}"></textarea>
-                        </div>
-                    </form>
-                    <div class="button-group pull-right">
-                        <button id="post_btn" type="submit" class="btn btn-primary">Post</button>
-                    </div>
-                    <ul id='commentlist' class="posts">
-                    </ul>
                 </div>
             </div>
             <script src='https://code.jquery.com/jquery-3.1.0.min.js'>
@@ -208,7 +196,7 @@ app.get('/submit-name', function(req, res) {
 app.get('/articles/:articleName', function(req, res){
     // articleName == article-one to article-six
     // articles[articleName] == selected {} object based on url
-    pool.query(" SELECT * from article where title = '" + req.params.articleName + "'", function(err, result) {
+    pool.query(" SELECT * FROM article WHERE title = '" + req.params.articleName + "'", function(err, result) {
        if (err) {
            res.status(500).send(err.toString());
        } else {
