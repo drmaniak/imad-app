@@ -102,18 +102,16 @@ app.post('/login' ,  function(req, res) {
     var password = req.body.password;
    
     pool.query('SELECT * FROM "user" username = $1', [username], function (err, result) {
-       
        if (err) {
            res.status(500).send(err.toString());
        } else {
-            if (res.rows.length === 0) {
+            if (result.rows.length === 0) {
                 res.send(403).send("Username/Password is invalid");
            } else {
                 // Match Password
                 var dbString = result.rows[0].password;
                 var salt = dbString.split('$')[2];
                 var hashedPassword = hash(password, salt);
-                res.send('User successfully created: ' + username);
                 if (hashedPassword === dbString) {
                     res.send('Creds correct');
                 } else {
