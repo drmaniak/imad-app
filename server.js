@@ -4,6 +4,7 @@ var path = require('path');
 var Pool = require('pg').Pool;
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 
 var config = {
@@ -115,6 +116,10 @@ app.post('/login' ,  function(req, res) {
                 var hashedPassword = hash(password, salt);
                 if (hashedPassword === dbString) {
                     res.send('Creds correct');
+                    
+                    // Set a session
+                    
+                    
                 } else {
                     res.send(403).send("Username/Password is invalid");
                     console.log("Error in matching password");
