@@ -107,6 +107,7 @@ app.post('/login' ,  function(req, res) {
        } else {
             if (result.rows.length === 0) {
                 res.send(403).send("Username/Password is invalid");
+                console.log("Error, 0 rows thrown");
            } else {
                 // Match Password
                 var dbString = result.rows[0].password;
@@ -116,6 +117,7 @@ app.post('/login' ,  function(req, res) {
                     res.send('Creds correct');
                 } else {
                     res.send(403).send("Username/Password is invalid");
+                    console.log("Error in matching password");
                 }
            }
             
