@@ -5,6 +5,7 @@ var Pool = require('pg').Pool;
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 // var session = require('express-session');
+var session = require('express-session');
 
 
 var config = {
@@ -18,10 +19,10 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
-// app.use(session({
-//     secret: 'randomSecretValue',
-//     cookie: {maxAge: 1000 * 60 * 60 * 24 * 30}
-// }));
+app.use(session({
+    secret: 'someRandomSecretValue',
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 30}
+}));
 
 function createTemplate(data){
     var title = data.title;
@@ -123,6 +124,7 @@ app.post('/login' ,  function(req, res) {
                     //set session
                     // req.session.auth = {userId: result.rows[0].id};
                     //set cookie with session ID
+                    req.session.auth = {userId: result.rows[0].id};
                     //Internally on the server side, it maps the session ID to an object
                     //{auth: {userId}}
                     
@@ -137,18 +139,18 @@ app.post('/login' ,  function(req, res) {
     });
 });
 
-// app.get("/check-login", function(req, res) {
-//   if (req.session && req.session.auth && req.session.auth.userId) {
-//       res.send('User is currently logged in: ' + req.session.auth.userId.toString());
-//   } else {
-//       res.send('You are not logged in.');
-//   }
-// });
+app.get("/check-login", function(req, res) {
+  if (req.session && req.session.auth && req.session.auth.userId) {
+      res.send('User is currently logged in: ' + req.session.auth.userId.toString());
+  } else {
+      res.send('You are not logged in.');
+  }
+});
 
-// app.get('/logout', function(req, res) {
-//     delete req.session.auth;
-//     res.send("You have been logged out");
-// });
+app.get('/logout', function(req, res) {
+    delete req.session.auth;
+    res.send("You have been logged out");
+});
 
 var pool = new Pool(config);
 
