@@ -18,7 +18,7 @@ submit.onclick = function() {
         console.log("Username: " + username);
         console.log("Password: " + password);
         request.open("POST","http://manickvennimalai.imad.hasura-app.io/login", true );
-        requst.setRequestHeader('Content-Type', 'application/json');
+        request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({username: username, password: password}));
 };
 
