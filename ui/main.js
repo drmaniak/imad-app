@@ -1,5 +1,27 @@
 var main= function(){
+    // Submit username/password
     
+    var submit = $("#submit_btn");
+    submit.click(function() {
+      var request = new XMLHttpRequest();
+      request.onreadystatechange = function(){
+          if (request.readyState === 4) {
+              if (request.status === 200) {
+                    console.log("Logged in successfully");
+                    alert("Logged in successfully");
+              }else {
+                    console.log("Invalid username/password");
+                    alert("Invalid username/password");
+              }
+          }
+      };
+      var username = $("#username").val();
+      var password = $("#password").val();
+      console.log(username);
+      console.log(password);
+      request.open("POST", "http://manickvennimalai.imad.hasura-app.io/login", true);
+      request.send(JSON.stringify({username: username, password: password }));
+    });    
     
     
     // // COUNTER CODE JQUERY
