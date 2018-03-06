@@ -18,6 +18,10 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+app.use(session({
+    secret: 'randomSecretValue',
+    cookie: {maxAge: 1000 * 60 * 60 * 24 * 30}
+}));
 
 function createTemplate(data){
     var title = data.title;
@@ -115,20 +119,28 @@ app.post('/login' ,  function(req, res) {
                 var salt = dbString.split('$')[2];
                 var hashedPassword = hash(password, salt);
                 if (hashedPassword === dbString) {
+                    
+                    //set session
+                    req.session.auth = {userId: result.rows[0].id};
+                    //set cookie with session ID
+                    //Internally on the server side, it maps the session ID to an object
+                    //{auth: {userId}}
+                    
                     res.send('Creds correct');
-                    
-                    // Set a session
-                    
                     
                 } else {
                     res.send(403).send("Username/Password is invalid");
                     console.log("Error in matching password");
                 }
            }
-            
        }  
-       
     });
+});
+
+app.get("/check-login", function(req, res) {
+   if (req.session && req.session.auth && req.session.auth.userId) {
+       res.send('User is currently logged in');
+   } 
 });
 
 var pool = new Pool(config);
