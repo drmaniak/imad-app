@@ -21,6 +21,7 @@ var main= function(){
       console.log(username);
       console.log(password);
       request.open("POST", "http://manickvennimalai.imad.hasura-app.io/login", true);
+      request.setRequestHeader("Content-Type", "application.JSON");
       request.send(JSON.stringify({username: username, password: password }));
     });    
     
