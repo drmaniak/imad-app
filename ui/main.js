@@ -1,165 +1,85 @@
-// COUNTER CODE WITHOUT JQUERY
-
-    // var button = document.getElementById('counter');
-    
-    // button.onclick = function() {
-    //     // Make a request to counter endpoint
-    //     var request = new XMLHttpRequest();
-    //     // Capture the response and store it in a variable
-    //     request.onreadystatechange = function() {
-    //       if (request.readyState === XMLHttpRequest.DONE){
-    //         //   take some action
-    //         if (request.status === 200) {
-    //             var counter = request.responseText;
-    //             var span = document.getElementById('count');
-    //             span.innerHTML = counter.toString();
-    //         }
-    //       }  
-            
-    //     };
-    //     //  Create a request object
-    //     request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/counter', true);
-    //     request.send(null);
-    
-        
-    // };
-    
-// SUBMIT NAME CODE WITHOUT JQUERY
-    
-    // var submit = document.getElementById("submit_btn");
-    
-    // submit.onclick = function() {
-    //     // Make a request to the server and send a name
-    //     var request = new XMLHttpRequest();
-    //     request.onreadystatechange = function() {
-    //         if (request.readyState === XMLHttpRequest.DONE) {
-    //             if(request.status === 200) {
-    //                 var names = request.responseText;
-    //                 names = JSON.parse(names);
-    //                 var list = "";
-    //                 for(var i = 0; i < names.length; i++) {
-    //                     list += "<li>" + names[i] + "</li>";
-    //                 }
-    //                 var ul = document.getElementById("nameList");
-    //                 ul.innerHTML = list;
-    //             }
-    //         }
-    //     };
-        
-    //     // Variables for name box and name storage
-    //     var nameInput = document.getElementById("name");
-    //     var name = nameInput.value;
-        
-    //     request.open("GET", "http://manickvennimalai.imad.hasura-app.io/submit-name?name="+ name, true );
-    //     request.send(null);
-    //     // Capture a list of names and render it as a list
-        
-    // };
-    
-//  POST COMMENT CODE WITHOUT JQUERY
-
-    var post = document.getElementById("post_btn");
-    post.onclick = function() {
-        var request = new XMLHttpRequest();
-        request.onreadystatechange = function() {
-          if (request.readyState === XMLHttpRequest.DONE) {
-              if (request.status === 200) {
-                  var comments = request.responseText;
-                  comments = JSON.parse(comments);
-                  var list = "";
-                  for (var i = 0; i < comments.length; i++) {
-                      list += "<li>" + comments[i] + "</li>";
-                  }
-                  var ul = document.getElementById("commentList");
-                  ul.innerHTML = list;
-              }
-          }  
-        };
-        
-        var commentInput = document.getElementById("comment");
-        var comment = commentInput.value;
-        
-        request.open("GET", "http://manickvennimalai.imad.hasura-app.io/comments?comment=" + comment, true);
-        request.send(null);
-    };
-    
-
 var main= function(){
-    // COUNTER CODE JQUERY
-    var button = $("#counter");
-    button.click(function() {
-        var request = new XMLHttpRequest();
+    
+    
+    
+    // // COUNTER CODE JQUERY
+    // var button = $("#counter");
+    // button.click(function() {
+    //     var request = new XMLHttpRequest();
         
-        request.onreadystatechange = function() {
-          if (request.readyState === XMLHttpRequest.DONE) {
-              if(request.status === 200){
-                    var counter = request.responseText;
-                    var span = $("#count"); 
-                    span.html(counter);
-                } 
-              else {
-                  console.log("The request status is: " + request.status);
-                  alert("The request status is: " + request.status);
-              }
-          }  
-        };
-        
-        request.open("GET", "http://manickvennimalai.imad.hasura-app.io/counter", true );
-        request.send(null);
-    });
-    
-    // NAMELIST CODE JQUERY
-    
-    
-    var submit = $("#submit_btn");
-    submit.click(function() {
-       var request = new XMLHttpRequest();
-       request.onreadystatechange = function(){
-           if (request.readyState === 4) {
-               if (request.status === 200) {
-                   var names = request.responseText;
-                   names = JSON.parse(names);
-                   var list = "";
-                   for (var i = 0; i < names.length; i++) {
-                       list += "<li>" + names[i] + "</li>";
-                   }
-                   var li = $("#nameList");
-                   li.html(list);
-               }
-           }
-       };
-       var nameList = $("#name");
-       var name = nameList.val();
-       
-       request.open("GET", "http://manickvennimalai.imad.hasura-app.io/submit-name?name="+ name, true);
-       request.send(null);
-    });
-    
-    
-    // var post = $("#post_btn");
-    // post.click(function(){
-    //     var request =  new XMLHttpRequest();
-        
-    //     request.onreadystatechange = function(){
-    //         if(request.readyState === XMLHttpRequest.DONE){
-    //             if(request.status === 200){
-    //                 var comments = request.responseText;
-    //                 comments = JSON.parse(comments);
-    //                 var list = "";
-    //                 for(var i=0; i<comments.length; i++){
-    //                     list+= "<li>" + comments[i] + "</li>";
-    //                 }
-    //                 var ul = $("#commentlist");
-    //                 ul.html(list);
-    //             }
-    //         }
+    //     request.onreadystatechange = function() {
+    //       if (request.readyState === XMLHttpRequest.DONE) {
+    //           if(request.status === 200){
+    //                 var counter = request.responseText;
+    //                 var span = $("#count"); 
+    //                 span.html(counter);
+    //             } 
+    //           else {
+    //               console.log("The request status is: " + request.status);
+    //               alert("The request status is: " + request.status);
+    //           }
+    //       }  
     //     };
-    //     var commentInput = $("#comment");
-    //     var comment = commentInput.val();
         
-    //     request.open('GET', 'http://manickvennimalai.imad.hasura-app.io/comments?comment=' + comment, true);
+    //     request.open("GET", "http://manickvennimalai.imad.hasura-app.io/counter", true );
     //     request.send(null);
     // });
+    
+    // // NAMELIST CODE JQUERY
+    
+    // var submit = $("#submit_btn");
+    // submit.click(function() {
+    //   var request = new XMLHttpRequest();
+    //   request.onreadystatechange = function(){
+    //       if (request.readyState === 4) {
+    //           if (request.status === 200) {
+    //               var names = request.responseText;
+    //               names = JSON.parse(names);
+    //               var list = "";
+    //               for (var i = 0; i < names.length; i++) {
+    //                   list += "<li>" + names[i] + "</li>";
+    //               }
+    //               var li = $("#nameList");
+    //               li.html(list);
+    //           }
+    //       }
+    //   };
+    //   var nameList = $("#name");
+    //   var name = nameList.val();
+       
+    //   request.open("GET", "http://manickvennimalai.imad.hasura-app.io/submit-name?name="+ name, true);
+    //   request.send(null);
+    // });
+    
+    // // COMMENT CODE JQUERY
+    
+    // var post = $("#post_btn");
+    // post.click(function () {
+    //   var request = new XMLHttpRequest();
+       
+    //   request.onreadystatechange = function() {
+    //       if (request.readyState === XMLHttpRequest.DONE) {
+    //           if (request.status === 200) {
+    //               var comments = request.responseText;
+    //               comments = JSON.parse(comments);
+    //               var list = "";
+    //               for (var i = 0; i<comments.length; i++) {
+    //                   list += "<li>" + comments[i] + "</li>";
+    //               }
+    //               var ul = $("#commentList");
+    //               ul.html(list);
+                   
+    //           }
+    //       }
+    //   };
+       
+    //   var commentList = $("#comment");
+    //   var comment = commentList.val();
+       
+    //   request.open("GET", "httm://manickvennimalai.imad.hasure-app.io/comments?comment=" + comment, true);
+    //   request.send(null);
+    // });
+    
     
 };
 
