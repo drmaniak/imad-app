@@ -13,8 +13,8 @@ submit.onclick = function() {
               }
           }
       };
-        var username = document.getElementById('username');
-        var password = document.getElementById('password');
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
         console.log("Username: " + username);
         console.log("Password: " + password);
         request.open("POST","http://manickvennimalai.imad.hasura-app.io/login", true );
