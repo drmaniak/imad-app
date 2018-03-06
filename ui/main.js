@@ -9,9 +9,10 @@ var main= function(){
               if (request.status === 200) {
                     console.log("Logged in successfully");
                     alert("Logged in successfully");
-              }else {
-                    console.log("Invalid username/password");
+              }else if (request.status === 403) {
                     alert("Invalid username/password");
+              }else if (request.status === 500) {
+                    alert("Something went wrong on the server");
               }
           }
       };
