@@ -167,5 +167,6 @@ var main = function() {
         }
 };
 
-
+$(document).ready(main.loadLogin());
+$(document).ready(main.loadArticles());
 $(document).ready(main);
