@@ -155,7 +155,7 @@ app.get('/logout', function(req, res) {
 var pool = new Pool(config);
 
 app.get('/get-articles', function (req, res) {
-   pool.query('SELECT * FROM articles ORDER BY date DESC', function (err, result) {
+   pool.query('SELECT * FROM article ORDER BY date DESC', function (err, result) {
        if (err) {
           res.status(500).send(err.toString());
       } else {
