@@ -42,6 +42,48 @@ var loadArticles = function() {
 
 var main = function() {
     
+    function loadLogin() {
+        var request = new XMLHttpRequest();
+        request.onReadyStateChange = function() {
+            if (request.readyState === XMLHttpRequest.DONE) {
+                if (request.status === 200) {
+                    loadLoggedInUser(this.resonseText);
+                } else {
+                    loadLoginForm();
+                } 
+            }  
+        };
+    
+        request.open("GET", "/check-login", true);
+        request.send(null);
+    }
+    
+    function loadArticles() {
+        var request = new XMLHttpRequest();
+        request.onReadyStateChange = function() {
+          if (request.readyState === XMLHttpRequest.DONE) {
+              var articles = $('#articles');
+              if(request.status === 200) {
+                  var content = '<ul>';
+                  var articleData = JSON.parse(request.responseText);
+                  for (var i = 0; i < articleData.length; i++) {
+                      content += `<li>
+                      <a href="/articles/${articleData[i].title}">${articleData[i].heading}</a>
+                      (${articleData[i].date.split('T')[0]})
+                      </li>`;
+                  }
+                  content += '</ul>';
+                  articles.html(content);
+              } else {
+                  articles.html('Oops, could not load the article data');
+              }
+          }  
+        };
+        
+        request.open("GET","/get-articles", true);
+        request.send(null);
+        }
+    
     function loadLoginForm() {
         var loginHtml = `
         <h3>Register to unlock bonus features!</h3>
@@ -124,49 +166,8 @@ var main = function() {
     }
     
     
-    function loadLogin() {
-        var request = new XMLHttpRequest();
-        request.onReadyStateChange = function() {
-            if (request.readyState === XMLHttpRequest.DONE) {
-                if (request.status === 200) {
-                    loadLoggedInUser(this.resonseText);
-                } else {
-                    loadLoginForm();
-                } 
-            }  
-        };
     
-        request.open("GET", "/check-login", true);
-        request.send(null);
-    }
-    
-    function loadArticles() {
-        var request = new XMLHttpRequest();
-        request.onReadyStateChange = function() {
-          if (request.readyState === XMLHttpRequest.DONE) {
-              var articles = $('#articles');
-              if(request.status === 200) {
-                  var content = '<ul>';
-                  var articleData = JSON.parse(request.responseText);
-                  for (var i = 0; i < articleData.length; i++) {
-                      content += `<li>
-                      <a href="/articles/${articleData[i].title}">${articleData[i].heading}</a>
-                      (${articleData[i].date.split('T')[0]})
-                      </li>`;
-                  }
-                  content += '</ul>';
-                  articles.html(content);
-              } else {
-                  articles.html('Oops, could not load the article data');
-              }
-          }  
-        };
-        
-        request.open("GET","/get-articles", true);
-        request.send(null);
-        }
 };
 
-$(document).ready(main.loadLogin());
-$(document).ready(main.loadArticles());
+
 $(document).ready(main);
