@@ -184,45 +184,7 @@ app.get('/test-db', function(req, res) {
     
 });
 
-var counter = 0;
-app.get('/counter', function(req, res){
-    counter += 1;
-    // can only send strings as responses, so counter.toString() is required
-    res.send(counter.toString()); 
-});
 
-// //Sample Webapp code begins
-// app.get('/article-zero', function (req, res){
-//   res.sendFile(path.join(__dirname, 'ui', 'sample.html'));
-// });
-// app.get('/ui/sample.css', function(req, res){
-//     res.sendFile(path.join(__dirname, 'ui', 'sample.css'));
-// });
-// app.get('/ui/sample.js', function(req, res){
-//     res.sendFile(path.join(__dirname, 'ui', 'sample.js'));
-// });
-// // Sample webapp code ends
-
-var comments=[];
-app.get('/comments', function(req, res){
-   var comment = req.query.comment;
-   
-   comments.push(comment);
-   
-   res.send(JSON.stringify(comments));
-});
-
-var names = [];
-app.get('/submit-name', function(req, res) {
-    //Get the name from the request
-    var name = req.query.name; //Takes the value from the query-string ?name=_____
-    
-    names.push(name);
-    
-    //JSON: Javascript object notation, used to convert complex obects to strings
-    
-    res.send(JSON.stringify(names)); //TODO
-});
 
 
 app.get('/articles/:articleName', function(req, res){
@@ -242,6 +204,43 @@ app.get('/articles/:articleName', function(req, res){
     });
 });
 
+app.get("/get-comments/:articleName", function(req, res) {
+    // Make a select request
+    // return a response with results
+    pool.query('SELECT comment.*, "user".username FROM article, comment, "user" WHERE article.title = $1 AND article.id = comment.article_id AND comment.user_id = "user".id ORDER BY comment.timestamp DESC', [req.params.articleName], function(err, result) {
+       if(err) {
+           res.status(500).send(err.toString());
+       } else {
+           res.send(JSON.stringify(result.rows));
+       }
+    });
+});
+
+app.get("/submit-comment/:articleName", function (req, res) {
+   if(req.session && req.session.auth && req.session.auth.userId) {
+    //   first check if article exists and get the article id
+    pool.query('select * from article where title = $1', [req.params.articleName], function(err, result) {
+        if(err) {
+            res.status(500).send(err.toString());
+        } else if (result.rows.length === 0) {
+            res.status(400).send("Article not found");
+        } else {
+            var articleId = result.rows[0].id
+            // Now insert the right comment for the article
+            pool.query('INSERT INTO comment (comment, article_id, user_id) VALUES ($1, $2, $3)', [req.body.comment, articleId, req.session.auth.userId], function (err, result) {
+                iff (err) {
+                   res.status(500).send(err.toString()); 
+                } else {
+                    res.status(200).send("Comment inserted!")
+                }
+            })
+        }
+    });
+   } else {
+       res.status(403).send('Only logged in users can comment');
+   } 
+});
+
 
 
 app.get('/ui/style.css', function (req, res) {
@@ -259,10 +258,6 @@ app.get('/ui/madi.png', function (req, res) {
 app.get('/ui/Pewds_Mannen.jpg', function(req, res) {
    res.sendFile(path.join(__dirname, 'ui', 'Pewds_Mannen.jpg'));
 });
-
-
-
-
 
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
