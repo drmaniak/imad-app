@@ -104,6 +104,7 @@ app.post('/create-user', function(req, res) {
 });
 
 app.post('/login' ,  function(req, res) {
+    
     var username = req.body.username;
     var password = req.body.password;
    
@@ -131,7 +132,7 @@ app.post('/login' ,  function(req, res) {
                     res.send('Creds correct');
                     
                 } else {
-                    res.send(403).send("Username/Password is invalid");
+                    res.status(403).send("Username/Password is invalid");
                     console.log("Error in matching password");
                 }
            }
