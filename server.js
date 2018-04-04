@@ -56,6 +56,11 @@ function createTemplate(data){
                 <div>
                     ${content}
                 </div>
+                <hr/>
+                <h4>Comments</h4>
+                <div id = "comments_form">
+                    <center>Loading Comments...</center>
+                </div>
             </div>
             <script src='https://code.jquery.com/jquery-3.1.0.min.js'>
             </script>
