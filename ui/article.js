@@ -18,7 +18,7 @@ function loadCommentForm() {
     submit.onclick = function() {
       var request = new XMLHttpRequest();
       
-      request.onReadyStateChange = function() {
+      request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE) {
             //Take some action 
             if (request.status === 200) {
@@ -43,7 +43,7 @@ function loadCommentForm() {
 function loadLogin() {
     var request = new XMLHttpRequest();
     
-    request.onReadyStateChange = function() {
+    request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
                 loadCommentForm(this.resonseText);
@@ -64,7 +64,7 @@ function escapeHTML (text) {
 
 function loadComments () {
     var request = new XMLHttpRequest();
-    request.onReadyStateChange = function() {
+    request.onreadystatechange = function() {
       if (request.readyState === XMLHttpRequest.DONE) {
           var comments = document.getElementById('comments');
           if (request.status === 200) {
