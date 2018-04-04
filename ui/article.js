@@ -66,8 +66,30 @@ function loadComments () {
     var request = new XMLHttpRequest();
     request.onReadyStateChange = function() {
       if (request.readyState === XMLHttpRequest.DONE) {
-          var comments = document.getElementById('comments')
-          
+          var comments = document.getElementById('comments');
+          if (request.status === 200) {
+              var content = '';
+              var commentsData = JSON.parse(this.responseText);
+              for( var i = 0; i < commentsData.length; i++) {
+                  var time = new Date(commentsData[i].timestamp);
+                  content += `
+                  <div class = "comment">
+                    <p>${escapeHTML(commenstData[i].comment)}</p>
+                    <div class = "commenter">
+                        ${commentsData[i].username} - ${time.toLocalTimeString()} on ${time.toLocalDateString()}
+                    </div>
+                  </div>`;
+              }
+              comments.innerHTML = content;
+          } else {
+              comment.innerHTML('Oops! Could not load the comments!');
+          }
       }  
     };
+    
+    request.open('GET', '/get-comments/' + currentArticleTitle, true);
+    request.send(null);
 }
+
+loadLogin();
+loadComments();
