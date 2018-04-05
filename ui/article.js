@@ -79,7 +79,8 @@ function loadComments () {
                   <div class = "comment">
                     <p>${escapeHTML(commentsData[i].comment)}</p>
                     <div class = "commenter">
-                        ${commentsData[i].username} - ${time.toLocaleTimeString()} on ${time.toLocaleDateString()}
+                        Posted by: <i>${commentsData[i].username}</i> 
+                        - ${time.toLocaleTimeString()} on ${time.toLocaleDateString()}
                     </div>
                   </div>`;
               }
