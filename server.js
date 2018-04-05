@@ -66,7 +66,7 @@ function createTemplate(data){
             </div>
             <script src='https://code.jquery.com/jquery-3.1.0.min.js'>
             </script>
-            <script type="text/javascript" src="/ui/main.js"></script>
+            <script type="text/javascript" src="/ui/article.js"></script>
         </body>
     </html>
     `;
