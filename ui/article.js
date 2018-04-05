@@ -71,6 +71,7 @@ function loadComments () {
           if (request.status === 200) {
               var content = '';
               console.log("Comments successfully loaded");
+              console.log("THIS IS THE REPSONSE FROM THE SERVER: "+ this.responseText);
               var commentsData = JSON.parse(this.responseText);
               for( var i = 0; i < commentsData.length; i++) {
                   var time = new Date(commentsData[i].timestamp);
