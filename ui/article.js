@@ -93,3 +93,4 @@ function loadComments () {
 
 loadLogin();
 loadComments();
+console.log(currentArticleTitle);
