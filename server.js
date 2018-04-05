@@ -222,7 +222,7 @@ app.get('/submit-comment/:articleName', function(req, res) {
         // First check if article exists and get the article ID
         pool.query('SELECT * FROM article where title = $1', [req.params.articleName], function(err, result) {
             if(err) {
-                res.status(500).send(err.toString());
+                res.status(500).send(err.toString()+"Hewwwooo");
             } else {
                 if (result.rows.length === 0) {
                     res.status(400).send('Article not found');
