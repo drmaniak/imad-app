@@ -67,9 +67,10 @@ function loadComments () {
     request.onreadystatechange = function() {
       if (request.readyState === XMLHttpRequest.DONE) {
           var comments = document.getElementById('comments');
-          console.log("Comments successfully loaded");
+          
           if (request.status === 200) {
               var content = '';
+              console.log("Comments successfully loaded");
               var commentsData = JSON.parse(this.responseText);
               for( var i = 0; i < commentsData.length; i++) {
                   var time = new Date(commentsData[i].timestamp);
