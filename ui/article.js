@@ -76,7 +76,7 @@ function loadComments () {
               for( var i = 0; i < commentsData.length; i++) {
                   var time = new Date(commentsData[i].timestamp);
                   content += `
-                  <div class = "comment">
+                  <div class = "comment well well-lg">
                     <p>${escapeHTML(commentsData[i].comment)}</p>
                     <div class = "commenter">
                         Posted by: <i>${commentsData[i].username}</i> 
