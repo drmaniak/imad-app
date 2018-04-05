@@ -64,10 +64,10 @@ function escapeHTML (text) {
 
 function loadComments () {
     var request = new XMLHttpRequest();
-    console.log("Comments successfully loaded");
     request.onreadystatechange = function() {
       if (request.readyState === XMLHttpRequest.DONE) {
           var comments = document.getElementById('comments');
+          console.log("Comments successfully loaded");
           if (request.status === 200) {
               var content = '';
               var commentsData = JSON.parse(this.responseText);
