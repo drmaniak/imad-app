@@ -84,6 +84,7 @@ function loadComments () {
                   </div>`;
               }
               comments.innerHTML = content;
+              console.log("THIS IS THE STRING: "+ content);
           } else {
               comment.innerHTML('Oops! Could not load the comments!');
           }
