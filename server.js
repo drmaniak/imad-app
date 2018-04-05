@@ -191,31 +191,6 @@ app.get("/get-comments/:articleName", function(req, res) {
     });
 });
 
-// app.get("/submit-comment/:articleName", function (req, res) {
-//   if(req.session && req.session.auth && req.session.auth.userId) {
-//     //   first check if article exists and get the article id
-//     pool.query('select * from article where title = $1', [req.params.articleName], function(err, result) {
-//         if(err) {
-//             res.status(500).send(err.toString());
-//         } else if (result.rows.length === 0) {
-//             res.status(400).send("Article not found");
-//         } else {
-//             var articleId = result.rows[0].id;
-//             // Now insert the right comment for the article
-//             pool.query('INSERT INTO comment (comment, article_id, user_id) VALUES ($1, $2, $3)', [req.body.comment, articleId, req.session.auth.userId], function (err, result) {
-//                 if (err) {
-//                   res.status(500).send(err.toString()); 
-//                 } else {
-//                     res.status(200).send("Comment inserted!");
-//                 }
-//             });
-//         }
-//     });
-//   } else {
-//       res.status(403).send('Only logged in users can comment');
-//   } 
-// });
-
 app.get('/submit-comment/:articleName', function(req, res) {
     // check if user is logged in
     if (req.session && req.session.auth && req.session.auth.userId) {
