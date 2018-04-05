@@ -64,6 +64,7 @@ function escapeHTML (text) {
 
 function loadComments () {
     var request = new XMLHttpRequest();
+    console.log("Comments successfully loaded");
     request.onreadystatechange = function() {
       if (request.readyState === XMLHttpRequest.DONE) {
           var comments = document.getElementById('comments');
@@ -73,7 +74,7 @@ function loadComments () {
               for( var i = 0; i < commentsData.length; i++) {
                   var time = new Date(commentsData[i].timestamp);
                   content += `
-                  <div class = "comments">
+                  <div class = "comment">
                     <p>${escapeHTML(commenstData[i].comment)}</p>
                     <div class = "commenter">
                         ${commentsData[i].username} - ${time.toLocalTimeString()} on ${time.toLocalDateString()}
