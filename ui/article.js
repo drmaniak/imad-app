@@ -77,7 +77,7 @@ function loadComments () {
                   var time = new Date(commentsData[i].timestamp);
                   content += `
                   <div class = "comment">
-                    <p>${escapeHTML(commenstData[i].comment)}</p>
+                    <p>${escapeHTML(commentsData[i].comment)}</p>
                     <div class = "commenter">
                         ${commentsData[i].username} - ${time.toLocalTimeString()} on ${time.toLocalDateString()}
                     </div>
